@@ -4,7 +4,7 @@ import { PieChart } from '@/components/Pie'
 // Chart.register(ArcElement);
 
 const data = {
-    labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+    labels: ['3x3x3', '2x2x2', 'Yellow', 'Green', 'Purple', 'Orange'],
     datasets: [
       {
         label: '# of Votes',

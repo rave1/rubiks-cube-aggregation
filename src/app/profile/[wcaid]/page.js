@@ -1,5 +1,6 @@
 export async function getUser(wcaid) {
-    const response = await fetch(`http://localhost:3000/api/profile/?wcaid=${wcaid}`, {
+    const url = `https://raw.githubusercontent.com/robiningelbrecht/wca-rest-api/master/api/persons/${wcaid}.json`
+    const response = await fetch(url, {
         cache: "no-store",
         next: {
             revalidate: 0
@@ -12,9 +13,12 @@ export async function getUser(wcaid) {
 export default async function ProfilePage({params}) {
     const data = await getUser(params.wcaid)
     return (
-        <main className="flex min-h-screen flex-col items-center justify-between p-24">
+        <main className="flex min-h-screen flex-col items-left justify-between p-24">
             <div className="size-1/4 flex items-center flex-col">
-                <div>Profile: {data.name}</div> 
+                <div>Profil: {data.name}</div> 
+                <div>WCA ID: {data.id}</div>
+                <div>Kraj: {data.country}</div>
+                <div>Ilość odbytych zawodów: {data.numberOfCompetitions}</div>
             </div>
         </main>
         
